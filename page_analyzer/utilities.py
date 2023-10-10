@@ -7,9 +7,9 @@ def validator(url):
     errors = []
     if not url:
         errors.append('URL обязателен')
-    if len(url) > 255:
+    elif len(url) > 255:
         errors.append('URL превышает 255 символов')
-    if not validators.url(url) or (validators.url(url) and errors):
+    elif not validators.url(url) or (validators.url(url) and errors):
         errors.append('Некорректный URL')
     return errors
 
