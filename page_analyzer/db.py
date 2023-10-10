@@ -1,5 +1,6 @@
 from dotenv import load_dotenv
 from psycopg2 import connect
+from psycopg2.extras import NamedTupleCursor
 from datetime import datetime
 import os
 
@@ -14,14 +15,14 @@ def add_url_into_db(url):
     query = 'INSERT INTO urls (name, created_at) VALUES (%s, %s)'
     values = (url, datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
     with connect(DATABASE_URL) as db:
-        with db.cursor() as cursor:
+        with db.cursor(cursor_factory=NamedTupleCursor) as cursor:
             cursor.execute(query, values)
 
 
 def get_url_by_name(url):
     query = 'SELECT * FROM urls WHERE name = (%s)'
     with connect(DATABASE_URL) as db:
-        with db.cursor() as cursor:
+        with db.cursor(cursor_factory=NamedTupleCursor) as cursor:
             cursor.execute(query, (url,))
             data = cursor.fetchone()
 
@@ -31,7 +32,7 @@ def get_url_by_name(url):
 def get_url_by_id(id):
     query = 'SELECT * FROM urls WHERE id = (%s)'
     with connect(DATABASE_URL) as db:
-        with db.cursor() as cursor:
+        with db.cursor(cursor_factory=NamedTupleCursor) as cursor:
             cursor.execute(query, (id,))
             data = cursor.fetchone()
 
@@ -54,14 +55,14 @@ def add_url_checks(checks):
     )
 
     with connect(DATABASE_URL) as db:
-        with db.cursor() as cursor:
+        with db.cursor(cursor_factory=NamedTupleCursor) as cursor:
             cursor.execute(query, values)
 
 
 def get_checks_by_url_id(id):
     query = 'SELECT * FROM url_checks WHERE url_id=(%s) ORDER BY id DESC'
     with connect(DATABASE_URL) as db:
-        with db.cursor() as cursor:
+        with db.cursor(cursor_factory=NamedTupleCursor) as cursor:
             cursor.execute(query, (id,))
             checks = cursor.fetchall()
     return checks
@@ -82,7 +83,7 @@ def get_all_urls():
         'ORDER BY urls.id DESC;'
     )
     with connect(DATABASE_URL) as db:
-        with db.cursor() as cursor:
+        with db.cursor(cursor_factory=NamedTupleCursor) as cursor:
             cursor.execute(query)
             urls = cursor.fetchall()
     return urls
