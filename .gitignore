@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# data for db on render.com
+psql_render.txt
+
 # C extensions
 *.so
 
