@@ -38,7 +38,7 @@ def post_index():
         return render_template(
             'index.html',
             messages=messages
-            ), 422
+        ), 422
     else:
         url = normalizer(url)
         data = get_url_by_name(url)
