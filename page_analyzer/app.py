@@ -27,8 +27,8 @@ def get_index():
     return render_template('index.html')
 
 
-@app.post('/')
-def post_index():
+@app.post('/urls')
+def post_urls():
     url = request.form.get('url')
     errors = validator(url)
     if errors:
