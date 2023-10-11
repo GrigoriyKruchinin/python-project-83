@@ -32,8 +32,7 @@ def post_index():
     url = request.form.get('url')
     errors = validator(url)
     if errors:
-        for error in errors:
-            flash(error, 'alert-danger')
+        flash(errors[0], 'alert-danger')
         messages = get_flashed_messages(with_categories=True)
         return render_template(
             'index.html',
@@ -49,10 +48,7 @@ def post_index():
             flash('Страница успешно добавлена', 'alert-success')
             data = get_url_by_name(url)
         id = data.id
-        return redirect(url_for(
-            'get_url',
-            id=id)
-        )
+        return redirect(url_for('get_url', id=id))
 
 
 @app.get('/urls')
