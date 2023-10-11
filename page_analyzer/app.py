@@ -85,7 +85,7 @@ def url_checks(id):
         response.raise_for_status()
     except requests.exceptions.RequestException:
         flash('Произошла ошибка при проверке', 'alert-danger')
-        return redirect(url_for('get_url', id=id))
+        return redirect(url_for('get_url', id=id)), 422
 
     checks = parse_page(response.text)
     checks['url_id'] = id
@@ -93,7 +93,7 @@ def url_checks(id):
 
     add_url_checks(checks)
     flash('Страница успешно проверена', 'alert-success')
-    return redirect(url_for('get_url', id=id))
+    return redirect(url_for('get_url', id=id)), 200
 
 
 if __name__ == '__main__':
