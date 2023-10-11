@@ -93,7 +93,7 @@ def url_checks(id):
 
     add_url_checks(checks)
     flash('Страница успешно проверена', 'alert-success')
-    return redirect(url_for('get_url', id=id)), 200
+    return redirect(url_for('get_url', id=id))
 
 
 if __name__ == '__main__':
