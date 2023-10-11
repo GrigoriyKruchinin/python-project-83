@@ -46,7 +46,7 @@ def post_index():
             flash('Страница уже существует', 'alert-info')
         else:
             add_url_into_db(url)
-            flash('URL успешно добавлен', 'alert-success')
+            flash('Страница успешно добавлена', 'alert-success')
             data = get_url_by_name(url)
         id = data.id
         return redirect(url_for(
