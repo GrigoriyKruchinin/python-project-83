@@ -35,7 +35,7 @@ DATABASE_URL=postgresql://{provider}://{user}:{password}@{host}:{port}/{db}
 SECRET_KEY='{your secret key}'
 ```
 
-5. Затем запустите команды из database.sql, чтобы создать необходимые таблицы.
+5. Затем запустите команды из database.sql в SQL-консоли вашей базы данных, чтобы создать необходимые таблицы.
 
 ***
 
