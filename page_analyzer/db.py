@@ -17,7 +17,7 @@ class DatabaseConnection:
         self.cursor = self.connection.cursor(cursor_factory=NamedTupleCursor)
         return self.cursor
 
-    def __exit__(self):
+    def __exit__(self, exc_type, exc_value, traceback):
         self.cursor.close()
         self.connection.commit()
         self.connection.close()
