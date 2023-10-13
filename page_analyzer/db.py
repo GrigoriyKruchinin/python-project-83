@@ -28,9 +28,10 @@ class DatabaseConnection:
 
 def add_url_into_db(url):
     with DatabaseConnection() as cursor:
-        query = 'INSERT INTO urls (name, created_at) VALUES (%s, %s)'
+        query = 'INSERT INTO urls (name, created_at) VALUES (%s, %s) RETURNING id'
         values = (url, datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
         cursor.execute(query, values)
+        return cursor.fetchone().id
 
 
 def get_url_by_name(url):

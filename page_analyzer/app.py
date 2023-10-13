@@ -43,12 +43,11 @@ def post_urls():
         url = normalizer(url)
         data = get_url_by_name(url)
         if data:
+            id = data.id
             flash('Страница уже существует', 'alert-info')
         else:
-            add_url_into_db(url)
+            id = add_url_into_db(url)
             flash('Страница успешно добавлена', 'alert-success')
-            data = get_url_by_name(url)
-        id = data.id
         return redirect(url_for('get_url', id=id))
 
 
