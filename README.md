@@ -7,7 +7,6 @@
 
 __"Page Analyzer__ - третий проект, разработанный в рамках обучения на курсе Хекслет. Это сайт, который анализирует указанные страницы на SEO-пригодность.
 
-[Link on render.com](https://page-analyzer-dlr3.onrender.com)
 ***
 ## Перед установкой
 Для установки и запуска проекта вам потребуется Python версии  3.10 и выше, инструмент для управления зависимостями Poetry и база данных PostgreSQL.
@@ -65,12 +64,13 @@ make dev
 Проект можно использовать локально и онлайн (например с помощью стороннего сервиса [render.com](https://dashboard.render.com/)). Следуйте инструкциям с официального сайта для добавления веб-сервиса и онлайн базы данных. Не забывайте про использования переменных окружения.
 
 ***
+### Демонстрация работы программы:
+Вы моежете пользоваться сервисом по этой [ссылке](https://page-analyzer-dlr3.onrender.com).
+![Тут должна быть демонтрация](https://cdn2.hexlet.io/derivations/image/original/eyJpZCI6IjA4YzUzNzU1ZDBlYzNjZmVkNzkyZGE4ODkyZGU1ZDFhLmdpZiIsInN0b3JhZ2UiOiJjYWNoZSJ9?signature=4ab181884d89f8af44193bd173cc2e5f7466fc47c57e50fa2e1c0b67b26b46c4)
+***
 ## Контакты
 - Автор: Grigoriy Kruchinin
 - [GitHub](https://github.com/GrigoriyKruchinin)
 - [Email](gkruchinin75@gmail.com)
 - [LinkedIn](https://www.linkedin.com/in/grigoriy-kruchinin/)
-***
-### Демонстрация работы программы:
-[Демонстрация работы проекта](https://python-page-analyzer-ru.hexlet.app/)
 ***
