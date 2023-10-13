@@ -18,6 +18,9 @@ class DatabaseConnection:
         return self.cursor
 
     def __exit__(self, exc_type, exc_value, traceback):
+        if exc_type is not None:
+            print(f"Возникло исключение типа: {exc_type}, "
+                  f"со значением: {exc_value}")
         self.cursor.close()
         self.connection.commit()
         self.connection.close()
@@ -28,7 +31,7 @@ def add_url_into_db(url):
         query = 'INSERT INTO urls (name, created_at) VALUES (%s, %s)'
         values = (url, datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
         cursor.execute(query, values)
-
+   
 
 def get_url_by_name(url):
     with DatabaseConnection() as cursor:

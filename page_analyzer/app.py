@@ -4,7 +4,8 @@ from flask import (
 )
 
 import requests
-from .utilities import validator, normalizer, parse_page
+from .utilities.url_utils import validator, normalizer
+from .utilities.html_parser import parse_page
 from dotenv import load_dotenv
 import os
 from .db import (
