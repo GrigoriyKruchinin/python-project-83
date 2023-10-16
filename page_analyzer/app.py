@@ -34,11 +34,7 @@ def post_urls():
     errors = validator(url)
     if errors:
         flash(errors[0], 'alert-danger')
-        messages = get_flashed_messages(with_categories=True)
-        return render_template(
-            'index.html',
-            messages=messages
-        ), 422
+        return render_template('index.html'), 422
     else:
         url = normalizer(url)
         data = get_url_by_name(url)
@@ -62,12 +58,10 @@ def get_url(id):
     url = get_url_by_id(id)
     if url is None:
         return render_template('404.html')
-    messages = get_flashed_messages(with_categories=True)
     checks = get_checks_by_url_id(id)
     return render_template(
         'url_info.html',
         url=url,
-        messages=messages,
         checks=checks
     )
 
