@@ -1,6 +1,6 @@
 from flask import (
     Flask, render_template, request, flash,
-    url_for, redirect, get_flashed_messages
+    url_for, redirect
 )
 
 import requests
