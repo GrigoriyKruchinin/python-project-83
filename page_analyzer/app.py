@@ -35,16 +35,16 @@ def post_urls():
     if errors:
         flash(errors[0], 'alert-danger')
         return render_template('index.html'), 422
+
+    url = normalizer(url)
+    data = get_url_by_name(url)
+    if data:
+        id = data.id
+        flash('Страница уже существует', 'alert-info')
     else:
-        url = normalizer(url)
-        data = get_url_by_name(url)
-        if data:
-            id = data.id
-            flash('Страница уже существует', 'alert-info')
-        else:
-            id = add_url_into_db(url)
-            flash('Страница успешно добавлена', 'alert-success')
-        return redirect(url_for('get_url', id=id))
+        id = add_url_into_db(url)
+        flash('Страница успешно добавлена', 'alert-success')
+    return redirect(url_for('get_url', id=id))
 
 
 @app.get('/urls')
