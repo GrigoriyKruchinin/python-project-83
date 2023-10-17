@@ -31,9 +31,9 @@ def get_index():
 @app.post('/urls')
 def post_urls():
     url = request.form.get('url')
-    errors = validator(url)
-    if errors:
-        flash(errors[0], 'alert-danger')
+    error = validator(url)
+    if error:
+        flash(error, 'alert-danger')
         return render_template('index.html'), 422
 
     url = normalizer(url)

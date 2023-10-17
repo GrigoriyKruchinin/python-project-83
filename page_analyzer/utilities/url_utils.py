@@ -3,14 +3,14 @@ import validators
 
 
 def validator(url):
-    errors = []
+    error = None
     if not url:
-        errors.append('URL обязателен')
+        error = 'URL обязателен'
     elif len(url) > 255:
-        errors.append('URL превышает 255 символов')
+        error = 'URL превышает 255 символов'
     elif not validators.url(url):
-        errors.append('Некорректный URL')
-    return errors
+        error = 'Некорректный URL'
+    return error
 
 
 def normalizer(url):
