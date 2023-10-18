@@ -55,7 +55,7 @@ def get_url_by_id(id):
         return data
 
 
-def add_url_checks(checks):
+def add_url_check(check_data):
     with DatabaseConnection() as cursor:
         query = (
             'INSERT INTO url_checks '
@@ -63,11 +63,11 @@ def add_url_checks(checks):
             'VALUES (%s, %s, %s, %s, %s, %s)'
         )
         values = (
-            checks.get('url_id'),
-            checks.get('status_code'),
-            checks.get('h1', ''),
-            checks.get('title', ''),
-            checks.get('description', ''),
+            check_data['url_id'],
+            check_data['status_code'],
+            check_data.get('h1', ''),
+            check_data.get('title', ''),
+            check_data.get('description', ''),
             datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         )
         cursor.execute(query, values)

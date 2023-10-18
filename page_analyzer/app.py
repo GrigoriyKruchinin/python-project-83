@@ -9,7 +9,7 @@ import os
 
 from .db import (
     get_url_by_name, add_url_into_db, get_url_by_id, get_all_urls,
-    get_checks_by_url_id, add_url_checks
+    get_checks_by_url_id, add_url_check
 )
 
 from .url import validator, normalizer
@@ -79,11 +79,11 @@ def url_checks(id):
         flash('Произошла ошибка при проверке', 'alert-danger')
         return redirect(url_for('get_url', id=id))
 
-    checks = parse_page(response.text)
-    checks['url_id'] = id
-    checks['status_code'] = response.status_code
+    check_data = parse_page(response.text)
+    check_data['url_id'] = id
+    check_data['status_code'] = response.status_code
 
-    add_url_checks(checks)
+    add_url_check(check_data)
     flash('Страница успешно проверена', 'alert-success')
     return redirect(url_for('get_url', id=id))
 
