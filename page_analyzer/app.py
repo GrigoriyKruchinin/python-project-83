@@ -4,14 +4,16 @@ from flask import (
 )
 
 import requests
-from .utilities.url_utils import validator, normalizer
-from .utilities.html_parser import parse_page
 from dotenv import load_dotenv
 import os
+
 from .db import (
     get_url_by_name, add_url_into_db, get_url_by_id, get_all_urls,
     get_checks_by_url_id, add_url_checks
 )
+
+from .url import validator, normalizer
+from .html import parse_page
 
 
 load_dotenv()
