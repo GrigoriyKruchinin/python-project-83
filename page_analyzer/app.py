@@ -89,4 +89,4 @@ def url_checks(id):
 
 
 if __name__ == '__main__':
-    app.run
+    app.run()
