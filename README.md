@@ -27,12 +27,13 @@ cd python-project-83
 ```
 poetry install
 ```
-4. Создайте файл .env в корневой папке и добавьте в него переменные в следующем формате:
+4. Создайте файл .env, который будет содержать ваши конфиденциальные настройки:
 
 ```
-DATABASE_URL=postgresql://{provider}://{user}:{password}@{host}:{port}/{db}
-SECRET_KEY='{your secret key}'
+cp .env.sample .env
 ```
+
+Откройте файл .env и ознакомтесь с его содержимым. Замените значение ключей SECRET_KEY и DATABASE_URL.
 
 5. Затем запустите команды из database.sql в SQL-консоли вашей базы данных, чтобы создать необходимые таблицы.
 
