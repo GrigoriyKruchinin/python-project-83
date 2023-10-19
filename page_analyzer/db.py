@@ -63,8 +63,8 @@ def add_url_check(check_data):
             'VALUES (%s, %s, %s, %s, %s, %s)'
         )
         values = (
-            check_data['url_id'],
-            check_data['status_code'],
+            check_data.get('url_id'),
+            check_data.get('status_code'),
             check_data.get('h1', ''),
             check_data.get('title', ''),
             check_data.get('description', ''),
