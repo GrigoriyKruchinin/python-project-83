@@ -59,7 +59,7 @@ def get_urls():
 def get_url(id):
     url = get_url_by_id(id)
     if url is None:
-        return render_template('404.html')
+        return render_template('404.html'), 404
     checks = get_checks_by_url_id(id)
     return render_template(
         'url_info.html',
