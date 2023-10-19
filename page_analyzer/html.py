@@ -9,7 +9,7 @@ def parse_page(content):
     parsed_data['h1'] = h1_tag.get_text().strip() if h1_tag else ''
 
     title_tag = soup.find('title')
-    parsed_data['title'] = title_tag.string.strip() if title_tag else ''
+    parsed_data['title'] = title_tag.get_text().strip() if title_tag else ''
 
     description_tag = soup.find('meta', attrs={'name': 'description'})
     if description_tag:
